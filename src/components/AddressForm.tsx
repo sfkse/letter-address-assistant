@@ -35,14 +35,14 @@ export default function AddressForm({
     "form-input w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-black";
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
       {/* Sender Address Form */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+      <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 flex items-center">
           <span className="mr-2">↩️</span>
           Return Address (Sender)
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           <div>
             <Tooltip content="Enter your full name as it should appear on the envelope">
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -96,7 +96,7 @@ export default function AddressForm({
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Tooltip content="City name (will be converted to ALL CAPS)">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -156,12 +156,12 @@ export default function AddressForm({
       </div>
 
       {/* Recipient Address Form */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+      <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 flex items-center">
           <span className="mr-2">📮</span>
           Recipient Address
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           <div>
             <Tooltip content="Full name of the recipient">
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -215,7 +215,7 @@ export default function AddressForm({
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Tooltip content="City name (will be converted to ALL CAPS)">
                 <label className="block text-sm font-medium text-gray-700 mb-1">

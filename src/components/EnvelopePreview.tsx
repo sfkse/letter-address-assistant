@@ -241,8 +241,8 @@ export default function EnvelopePreview({
   const formattedRecipient = formatAddress(displayRecipient);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <div className="flex justify-between items-center mb-4">
+    <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-4">
         <h2 className="text-xl font-semibold text-gray-800 flex items-center">
           <span className="mr-2">✉️</span>
           Envelope Preview
@@ -252,7 +252,7 @@ export default function EnvelopePreview({
         <button
           onClick={handleValidateAddresses}
           disabled={!canValidate || validationState.isValidating}
-          className={`px-6 py-2 rounded-lg font-medium transition-colors flex items-center ${
+          className={`px-4 sm:px-6 py-2 rounded-lg font-medium transition-colors flex items-center justify-center text-sm sm:text-base ${
             canValidate && !validationState.isValidating
               ? "bg-green-600 hover:bg-green-700 text-white shadow-md"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
@@ -342,8 +342,8 @@ export default function EnvelopePreview({
             }}
           >
             {/* Return Address (Top Left) */}
-            <div className="absolute top-4 left-4 w-48">
-              <div className="usps-text text-xs leading-tight text-gray-800">
+            <div className="absolute top-2 left-2 sm:top-4 sm:left-4 w-36 sm:w-48">
+              <div className="usps-text text-xs sm:text-xs leading-tight text-gray-800">
                 <div className="font-medium">{formattedSender.name}</div>
                 <div>{formattedSender.line1}</div>
                 {formattedSender.line2 && <div>{formattedSender.line2}</div>}
@@ -352,7 +352,7 @@ export default function EnvelopePreview({
             </div>
 
             {/* Stamp Area (Top Right) */}
-            <div className="absolute top-4 right-4 w-16 h-20 border-2 border-dashed border-gray-300 flex items-center justify-center">
+            <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-12 h-16 sm:w-16 sm:h-20 border-2 border-dashed border-gray-300 flex items-center justify-center">
               <div className="text-xs text-gray-400 text-center leading-tight">
                 STAMP
                 <br />
@@ -361,15 +361,17 @@ export default function EnvelopePreview({
             </div>
 
             {/* Recipient Address (Center) */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-72 text-center">
-                <div className="usps-text text-sm leading-relaxed text-gray-900 font-medium">
-                  <div className="text-lg mb-1">{formattedRecipient.name}</div>
+            <div className="absolute inset-0 flex items-center justify-center px-4">
+              <div className="w-64 sm:w-72 text-center">
+                <div className="usps-text text-sm sm:text-sm leading-relaxed text-gray-900 font-medium">
+                  <div className="text-base sm:text-lg mb-1">
+                    {formattedRecipient.name}
+                  </div>
                   <div className="mb-1">{formattedRecipient.line1}</div>
                   {formattedRecipient.line2 && (
                     <div className="mb-1">{formattedRecipient.line2}</div>
                   )}
-                  <div className="text-base">
+                  <div className="text-sm sm:text-base">
                     {formattedRecipient.cityStateZip}
                   </div>
                 </div>
@@ -377,7 +379,7 @@ export default function EnvelopePreview({
             </div>
 
             {/* USPS Processing Area (Bottom) */}
-            <div className="absolute bottom-4 left-4 right-4 h-8 border-t border-dashed border-gray-200">
+            <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4 h-6 sm:h-8 border-t border-dashed border-gray-200">
               <div className="text-xs text-gray-400 mt-1">
                 USPS Processing Area
               </div>
