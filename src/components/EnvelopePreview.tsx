@@ -247,7 +247,10 @@ export default function EnvelopePreview({
           <h3 className="text-sm font-semibold text-red-800 mb-2">
             ❌ Validation Error:
           </h3>
-          <p className="text-xs text-red-700">{validationState.error}</p>
+          <p className="text-xs text-red-700">
+            {validationState.error}. We still attempt to format the addresses as
+            best we can.
+          </p>
         </div>
       )}
 

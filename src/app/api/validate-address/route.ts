@@ -23,6 +23,7 @@ interface USPSTokenResponse {
 }
 
 interface USPSAddressValidationRequest {
+  type: string;
   streetAddress: string;
   secondaryAddress?: string;
   cityName: string;
@@ -91,7 +92,7 @@ async function validateUSPSAddress(address: USPSAddressValidationRequest) {
 
     if (!response.ok) {
       const errorText = await response.json();
-      throw new Error(errorText.error.message);
+      throw new Error(`${address.type} address validation failed: ${errorText.error.message}`);
     }
 
     const validationResult = await response.json();
@@ -128,6 +129,7 @@ export async function POST(request: NextRequest) {
     // Validate both addresses
     const [senderValidation, recipientValidation] = await Promise.all([
       validateUSPSAddress({
+        type: "sender",
         streetAddress: senderAddress.line1,
         secondaryAddress: senderAddress.line2 ,
         cityName: senderAddress.city,
@@ -135,6 +137,7 @@ export async function POST(request: NextRequest) {
         ZIPCode: senderAddress.zipCode,
       }),
       validateUSPSAddress({
+        type: "recipient",
         streetAddress: recipientAddress.line1,
         secondaryAddress: recipientAddress.line2 ,
         cityName: recipientAddress.city,

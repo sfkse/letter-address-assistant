@@ -576,20 +576,53 @@ export default function HowToWriteEnvelope() {
             </div>
           </div>
         </div>
+
+        {/* Contact Section */}
+        <div className="bg-white rounded-lg shadow-md p-6 mt-8 text-center">
+          <h3 className="text-lg font-semibold text-gray-800 mb-3">
+            Questions About Envelope Formatting?
+          </h3>
+          <p className="text-gray-600 mb-4">
+            Need additional help with addressing guidelines or have specific
+            questions about USPS standards?
+          </p>
+          <a
+            href="mailto:contact@howtoaddress.pro"
+            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+          >
+            <span className="mr-2">📧</span>
+            contact@howtoaddress.pro
+          </a>
+        </div>
       </main>
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8 mt-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-300 mb-4">
-            Complete Guide to Envelope Addressing • USPS Compliant Formatting
-          </p>
-          <Link
-            href="/"
-            className="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Try Our Interactive Envelope Formatter
-          </Link>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-gray-300 mb-2">
+              Complete Guide to Envelope Addressing • USPS Compliant Formatting
+            </p>
+            <p className="text-gray-400 text-sm mb-4">
+              Professional envelope writing guidance and interactive tools
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/"
+                className="text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                Try Interactive Envelope Formatter
+              </Link>
+              <span className="hidden sm:block text-gray-500">•</span>
+              <a
+                href="mailto:contact@howtoaddress.pro"
+                className="text-blue-400 hover:text-blue-300 transition-colors flex items-center"
+              >
+                <span className="mr-1">📧</span>
+                contact@howtoaddress.pro
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

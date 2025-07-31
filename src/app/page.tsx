@@ -153,7 +153,7 @@ export default function Home() {
               </div>
               <div className="flex-shrink-0">
                 <Link
-                  href="/how-to"
+                  href="/how-to-write-an-envelope"
                   className="inline-block px-6 py-3 bg-white text-indigo-600 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-md"
                 >
                   Read Complete Guide →
@@ -233,27 +233,57 @@ export default function Home() {
 
           <div className="mt-6 text-center">
             <Link
-              href="/how-to"
+              href="/how-to-write-an-envelope"
               className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
             >
               📖 Read Our Complete Envelope Writing Guide
             </Link>
           </div>
         </div>
+
+        {/* Contact Section */}
+        <div className="mt-12 bg-white p-6 rounded-lg shadow-md text-center">
+          <h3 className="text-lg font-semibold text-gray-800 mb-3">
+            Need Help or Have Questions?
+          </h3>
+          <p className="text-gray-600 mb-4">
+            Get in touch with us for assistance with envelope formatting or any
+            other questions.
+          </p>
+          <a
+            href="mailto:contact@howtoaddress.pro"
+            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+          >
+            <span className="mr-2">📧</span>
+            contact@howtoaddress.pro
+          </a>
+        </div>
       </main>
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8 mt-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-300 mb-4">
-            Complete Guide to Envelope Addressing • USPS Compliant Formatting
-          </p>
-          <Link
-            href="/"
-            className="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Try Our Interactive Envelope Formatter
-          </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-gray-400 text-sm mb-4">
+              Compliant with USPS Publication 28 addressing standards
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/how-to-write-an-envelope"
+                className="text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                Complete Envelope Writing Guide
+              </Link>
+              <span className="hidden sm:block text-gray-500">•</span>
+              <a
+                href="mailto:contact@howtoaddress.pro"
+                className="text-blue-400 hover:text-blue-300 transition-colors flex items-center"
+              >
+                <span className="mr-1">📧</span>
+                contact@howtoaddress.pro
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
