@@ -41,6 +41,11 @@ export default function EnvelopePreview({
     corrections: [],
   });
 
+  const [lastValidatedAddresses, setLastValidatedAddresses] = useState<{
+    sender: AddressData;
+    recipient: AddressData;
+  } | null>(null);
+
   const senderValid = isValidAddress(senderAddress);
   const recipientValid = isValidAddress(recipientAddress);
   const canValidate = senderValid && recipientValid;
@@ -54,8 +59,38 @@ export default function EnvelopePreview({
         hasCorrections: false,
         corrections: [],
       });
+      setLastValidatedAddresses(null);
     }
   }, [isCleared]);
+
+  // Reset validation state when user modifies addresses after validation
+  useEffect(() => {
+    if (validationState.isValidated && lastValidatedAddresses) {
+      const addressesChanged =
+        JSON.stringify(senderAddress) !==
+          JSON.stringify(lastValidatedAddresses.sender) ||
+        JSON.stringify(recipientAddress) !==
+          JSON.stringify(lastValidatedAddresses.recipient);
+
+      if (addressesChanged) {
+        setValidationState((prev) => ({
+          ...prev,
+          isValidated: false,
+          validatedSender: undefined,
+          validatedRecipient: undefined,
+          hasCorrections: false,
+          corrections: [],
+          error: null,
+        }));
+        setLastValidatedAddresses(null);
+      }
+    }
+  }, [
+    senderAddress,
+    recipientAddress,
+    validationState.isValidated,
+    lastValidatedAddresses,
+  ]);
 
   const handleValidateAddresses = async () => {
     if (!canValidate) return;
@@ -162,6 +197,12 @@ export default function EnvelopePreview({
           : []),
       ];
 
+      // Store the addresses that were validated for comparison
+      setLastValidatedAddresses({
+        sender: { ...senderAddress },
+        recipient: { ...recipientAddress },
+      });
+
       setValidationState({
         isValidating: false,
         isValidated: true,
@@ -186,9 +227,16 @@ export default function EnvelopePreview({
     }
   };
 
-  const displaySender = validationState.validatedSender || senderAddress;
+  // Use validated addresses only if validation is active and addresses haven't changed
+  const displaySender =
+    validationState.isValidated && validationState.validatedSender
+      ? validationState.validatedSender
+      : senderAddress;
   const displayRecipient =
-    validationState.validatedRecipient || recipientAddress;
+    validationState.isValidated && validationState.validatedRecipient
+      ? validationState.validatedRecipient
+      : recipientAddress;
+
   const formattedSender = formatAddress(displaySender);
   const formattedRecipient = formatAddress(displayRecipient);
 
@@ -263,7 +311,7 @@ export default function EnvelopePreview({
           <ul className="text-xs text-yellow-700 space-y-1">
             {validationState.corrections.map((correction) => (
               <li key={correction.type}>
-                {correction.type}: {correction.text.split(":")[1]}
+                {correction.type}: {correction.text}
               </li>
             ))}
           </ul>

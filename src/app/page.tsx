@@ -30,21 +30,21 @@ export default function Home() {
   // Example data for demonstration
   const loadExampleData = () => {
     setSenderAddress({
-      name: "John Doe",
-      line1: "123 Main Street",
-      line2: "Apt 4B",
-      city: "Springfield",
+      name: "JOHN DOE",
+      line1: "123 MAIN STREET",
+      line2: "APT 4B",
+      city: "SPRINGFIELD",
       state: "IL",
       zipCode: "62704",
     });
 
     setRecipientAddress({
-      name: "Jane Smith",
-      line1: "456 Oak Avenue",
-      line2: "Suite 200",
-      city: "Chicago",
+      name: "JANE SMITH",
+      line1: "456 OAK AVENUE",
+      line2: "SUITE 200",
+      city: "CHICAGO",
       state: "IL",
-      zipCode: "60601-2214",
+      zipCode: "60601",
     });
     setIsCleared(false);
   };

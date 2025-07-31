@@ -55,7 +55,7 @@ export default function AddressForm({
               onChange={(e) =>
                 handleSenderChange("name", e.target.value.toUpperCase())
               }
-              placeholder="John Doe"
+              placeholder="JOHN DOE"
               className={inputClasses}
               required
             />
@@ -70,8 +70,10 @@ export default function AddressForm({
             <input
               type="text"
               value={senderAddress.line1}
-              onChange={(e) => handleSenderChange("line1", e.target.value)}
-              placeholder="123 Main Street"
+              onChange={(e) =>
+                handleSenderChange("line1", e.target.value.toUpperCase())
+              }
+              placeholder="123 MAIN STREET"
               className={inputClasses}
               required
             />
@@ -86,8 +88,10 @@ export default function AddressForm({
             <input
               type="text"
               value={senderAddress.line2 || ""}
-              onChange={(e) => handleSenderChange("line2", e.target.value)}
-              placeholder="Apt 4B"
+              onChange={(e) =>
+                handleSenderChange("line2", e.target.value.toUpperCase())
+              }
+              placeholder="APT 4B"
               className={inputClasses}
             />
           </div>
@@ -102,8 +106,10 @@ export default function AddressForm({
               <input
                 type="text"
                 value={senderAddress.city}
-                onChange={(e) => handleSenderChange("city", e.target.value)}
-                placeholder="Springfield"
+                onChange={(e) =>
+                  handleSenderChange("city", e.target.value.toUpperCase())
+                }
+                placeholder="SPRINGFIELD"
                 className={inputClasses}
                 required
               />
@@ -118,8 +124,10 @@ export default function AddressForm({
               <input
                 type="text"
                 value={senderAddress.state}
-                onChange={(e) => handleSenderChange("state", e.target.value)}
-                placeholder="IL"
+                onChange={(e) =>
+                  handleSenderChange("state", e.target.value.toUpperCase())
+                }
+                placeholder="IL" // TODO: make this a dropdown
                 maxLength={2}
                 className={inputClasses}
                 required
@@ -136,8 +144,10 @@ export default function AddressForm({
             <input
               type="text"
               value={senderAddress.zipCode}
-              onChange={(e) => handleSenderChange("zipCode", e.target.value)}
-              placeholder="62704"
+              onChange={(e) =>
+                handleSenderChange("zipCode", e.target.value.toUpperCase())
+              }
+              placeholder="62704" // TODO: make this a dropdown
               className={inputClasses}
               required
             />
@@ -161,8 +171,10 @@ export default function AddressForm({
             <input
               type="text"
               value={recipientAddress.name}
-              onChange={(e) => handleRecipientChange("name", e.target.value)}
-              placeholder="Jane Smith"
+              onChange={(e) =>
+                handleRecipientChange("name", e.target.value.toUpperCase())
+              }
+              placeholder="JANE SMITH"
               className={inputClasses}
               required
             />
@@ -177,8 +189,10 @@ export default function AddressForm({
             <input
               type="text"
               value={recipientAddress.line1}
-              onChange={(e) => handleRecipientChange("line1", e.target.value)}
-              placeholder="456 Oak Avenue"
+              onChange={(e) =>
+                handleRecipientChange("line1", e.target.value.toUpperCase())
+              }
+              placeholder="456 OAK AVENUE"
               className={inputClasses}
               required
             />
@@ -193,8 +207,10 @@ export default function AddressForm({
             <input
               type="text"
               value={recipientAddress.line2 || ""}
-              onChange={(e) => handleRecipientChange("line2", e.target.value)}
-              placeholder="Suite 200"
+              onChange={(e) =>
+                handleRecipientChange("line2", e.target.value.toUpperCase())
+              }
+              placeholder="SUITE 200"
               className={inputClasses}
             />
           </div>
@@ -209,8 +225,10 @@ export default function AddressForm({
               <input
                 type="text"
                 value={recipientAddress.city}
-                onChange={(e) => handleRecipientChange("city", e.target.value)}
-                placeholder="Chicago"
+                onChange={(e) =>
+                  handleRecipientChange("city", e.target.value.toUpperCase())
+                }
+                placeholder="CHICAGO"
                 className={inputClasses}
                 required
               />
@@ -225,8 +243,10 @@ export default function AddressForm({
               <input
                 type="text"
                 value={recipientAddress.state}
-                onChange={(e) => handleRecipientChange("state", e.target.value)}
-                placeholder="IL"
+                onChange={(e) =>
+                  handleRecipientChange("state", e.target.value.toUpperCase())
+                }
+                placeholder="IL" // TODO: make this a dropdown
                 maxLength={2}
                 className={inputClasses}
                 required
@@ -243,8 +263,10 @@ export default function AddressForm({
             <input
               type="text"
               value={recipientAddress.zipCode}
-              onChange={(e) => handleRecipientChange("zipCode", e.target.value)}
-              placeholder="60601"
+              onChange={(e) =>
+                handleRecipientChange("zipCode", e.target.value.toUpperCase())
+              }
+              placeholder="60601" // TODO: make this a dropdown
               className={inputClasses}
               required
             />
