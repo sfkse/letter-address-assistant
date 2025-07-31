@@ -90,15 +90,15 @@ async function validateUSPSAddress(address: USPSAddressValidationRequest) {
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`USPS validation failed: ${response.status} ${response.statusText} - ${errorText}`);
+      const errorText = await response.json();
+      throw new Error(errorText.error.message);
     }
 
     const validationResult = await response.json();
     return validationResult;
   } catch (error) {
     console.error('Error validating address with USPS:', error);
-    throw new Error('Failed to validate address with USPS');
+    throw new Error(error as string);
   }
 }
 

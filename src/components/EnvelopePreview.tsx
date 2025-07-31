@@ -147,7 +147,7 @@ export default function EnvelopePreview({
         ...(senderValidation.corrections[0].text
           ? [
               {
-                text: senderValidation.corrections[0].text,
+                text: `${senderValidation.corrections[0].text}(or information might be incorrect)`,
                 type: "Improve Sender Address",
               },
             ]
@@ -155,7 +155,7 @@ export default function EnvelopePreview({
         ...(recipientValidation.corrections[0].text
           ? [
               {
-                text: recipientValidation.corrections[0].text,
+                text: `${recipientValidation.corrections[0].text}(or information might be incorrect)`,
                 type: "Improve Recipient Address",
               },
             ]
